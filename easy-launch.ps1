@@ -10,16 +10,21 @@ Set-Location $ProjectPath
 
 if (-not (Test-Path "server/node_modules")) {
   Write-Host "Installing server deps..."
-  cd server; npm install; cd ..
+  cd server
+  npm install
+  cd ..
 }
 
 $env:ENABLE_DEV_AUTO_LOGIN = "true"
 $env:NODE_ENV = "development"
 
 Write-Host "Starting server with master profile (full premium access)..."
-Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", "cd '$ProjectPath\server'; npm start"
+# Run server in new window with bypass
+Start-Process powershell -ArgumentList "-NoExit", "-ExecutionPolicy", "Bypass", "-Command", "cd '$ProjectPath\server'; npm start" -WindowStyle Normal
 
 Start-Sleep -Seconds 6
+
+# Open browser to the app
 Start-Process "http://127.0.0.1:3000/admin.html"
 
-Write-Host "Launched. Master profile active. Use desktop shortcut next time." -ForegroundColor Green
+Write-Host "Launched. Master profile active. Double-click desktop Soluna.lnk next time." -ForegroundColor Green

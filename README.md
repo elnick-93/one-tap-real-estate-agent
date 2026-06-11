@@ -2,38 +2,55 @@
 
 **Basic Rundown:**
 
-ONE TAP is a revenue-ready SaaS for real estate agents that automates instant lead response so agents never miss a deal.
+ONE TAP is a complete, revenue-ready SaaS for real estate agents that automates instant lead response 24/7.
 
-- Agents subscribe ($99/mo).
-- Leads from Zillow, Facebook, etc. hit a webhook or form.
-- System instantly sends personalized SMS + Email to the lead with qualification questions.
-- All leads logged in personal CRM.
-- Agent logs into dashboard to see leads, update status, book appointments, view daily summaries.
-- Automatic follow-up and notifications.
+**What it does:**
+- Agents pay $99/mo via Stripe.
+- Leads from any source (Zillow, FB, website) are sent to the system via webhook or form.
+- The backend instantly qualifies the lead and sends personalized SMS (Twilio) + Email (SendGrid) with questions to book a call/showing.
+- All leads are logged in the agent's private CRM.
+- Agent logs into a clean dashboard to view leads, update status, book appointments, and see daily summaries.
+- Full multi-agent support, auth, billing portal.
 
-**ALL LAYERS EXECUTED:**
-- Real landing page (converting sales copy, Stripe checkout)
-- Real checkout & billing portal (Stripe)
-- Real backend (Express, qualification, SMS/Email)
-- Real lead-response engine
-- Real CRM (SQLite, multi-agent)
-- Real admin / CRM dashboard UI (full HTML/JS with filters, status, booking, summaries)
-- Real SMS + email automation (Twilio + SendGrid)
-- Real logging
-- Real onboarding (form + immediate auto-response)
-- Real money (Stripe subscriptions)
-- Full SaaS auth (register, login, JWT protected)
-- Multi-agent support (each agent has own leads, API key, dashboard)
-- Appointment booking (in-dashboard booking, confirm via SMS/email, appointments table)
-- Daily summary engine (endpoint for leads in last 24h, can be scheduled for email/SMS digest)
-- Billing portal (Stripe Customer Portal integration)
+**Deploy this TONIGHT:**
+1. Clone this repo.
+2. For the landing: Deploy `site/` to Vercel (vercel.com) or Netlify (netlify.com). Update the Stripe button in site/index.html with your real Payment Link from Stripe Dashboard > Payment Links.
+   - Vercel: Import repo, set root directory to `site`.
+3. For the backend: cd server; npm install; copy .env.example to .env and fill real keys (see below).
+   - Deploy `server/` folder to Railway.app, Render.com, or Fly.io.
+4. Get keys:
+   - Twilio: https://www.twilio.com/try-twilio (buy a number, get SID + Auth Token)
+   - SendGrid: https://sendgrid.com/ (get API key, verify sender email)
+   - Stripe: https://dashboard.stripe.com/ (create $99/mo subscription product + Payment Link; get secret key for portal)
+   - Zapier: https://zapier.com/ (connect lead sources to POST /lead with your agent's api_key)
+5. Onboarding: Use the signup.html or your form. Agents get api_key for webhooks and login for /admin.html
 
-Deploy tonight. Clone, fill keys, deploy site to Vercel, server to Railway, connect Zapier, post the link.
+**Master Account (for you):** 
+- Use ADMIN_PASSWORD from .env for /admin/leads (Bearer token)
+- Or register via /register for full dashboard access.
+- For local Windows double-click launch: Use the desktop Soluna.lnk or run powershell -ExecutionPolicy Bypass -File .\easy-launch.ps1
 
-**Master Account:** Use /admin with your ADMIN_PASSWORD, or register as agent for full dashboard.
+**All Layers Included:**
+- Landing + Stripe checkout
+- Backend + SMS/Email automation
+- SQLite CRM + multi-agent
+- Full SaaS auth (register/login/JWT)
+- CRM Dashboard UI (responsive, with booking & summaries)
+- Appointment booking (in-dashboard + confirmations)
+- Daily summary engine (/api/daily-summary)
+- Billing portal (Stripe integration)
+- Admin protection
 
-**Desktop Shortcut:** See easy-launch.ps1 and the Soluna.lnk style shortcut for one double-click launch (bypass + master envs + browser).
+**Must-Do Links (copy these):**
+- Stripe Dashboard: https://dashboard.stripe.com/
+- Twilio Console: https://console.twilio.com/
+- SendGrid: https://app.sendgrid.com/
+- Zapier: https://zapier.com/app/dashboard
+- Railway Deploy: https://railway.app/new
+- Vercel Deploy: https://vercel.com/new
 
-**Next?** It's all in. If you want more (AI qualification, mobile PWA, etc.) say the word.
+Replace all YOUR_ placeholders in .env and HTML with real values. Deploy site and server separately. Connect Zapier last.
 
-Copy this energy. No vapor. Real product. Real revenue.
+This is fully operational. Deploy in <60 min. Real money tonight.
+
+If you need more, say the word.
