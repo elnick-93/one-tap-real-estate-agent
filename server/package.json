@@ -1,0 +1,17 @@
+{
+  "name": "one-tap-real-estate-agent",
+  "version": "1.0.0",
+  "description": "ONE TAP Real Estate Agent - Instant lead response for realtors",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "twilio": "^4.19.0",
+    "@sendgrid/mail": "^8.1.0",
+    "sqlite3": "^5.1.6",
+    "cors": "^2.8.5"
+  }
+}
