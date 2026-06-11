@@ -1,88 +1,39 @@
 # ONE TAP Real Estate Agent
 
-**Never Lose Another Real Estate Lead.**
+**Basic Rundown:**
 
-Instant SMS + email response. Automatic qualification. Appointment booking. Daily summaries.
+ONE TAP is a revenue-ready SaaS for real estate agents that automates instant lead response so agents never miss a deal.
 
-ONE TAP Real Estate Agent works 24/7 so you never miss a deal again.
+- Agents subscribe ($99/mo).
+- Leads from Zillow, Facebook, etc. hit a webhook or form.
+- System instantly sends personalized SMS + Email to the lead with qualification questions.
+- All leads logged in personal CRM.
+- Agent logs into dashboard to see leads, update status, book appointments, view daily summaries.
+- Automatic follow-up and notifications.
 
-## Deploy Tonight - Revenue Ready
-
-This is a fully operational, production-ready product you can deploy TONIGHT.
-
-- Real landing page
-- Real checkout (Stripe)
-- Real backend (Node/Express)
-- Real lead-response engine (SMS + Email via Twilio + SendGrid)
-- Real CRM (SQLite)
-- Real admin view
+**ALL LAYERS EXECUTED:**
+- Real landing page (converting sales copy, Stripe checkout)
+- Real checkout & billing portal (Stripe)
+- Real backend (Express, qualification, SMS/Email)
+- Real lead-response engine
+- Real CRM (SQLite, multi-agent)
+- Real admin / CRM dashboard UI (full HTML/JS with filters, status, booking, summaries)
+- Real SMS + email automation (Twilio + SendGrid)
 - Real logging
-- Real onboarding flow
+- Real onboarding (form + immediate auto-response)
+- Real money (Stripe subscriptions)
+- Full SaaS auth (register, login, JWT protected)
+- Multi-agent support (each agent has own leads, API key, dashboard)
+- Appointment booking (in-dashboard booking, confirm via SMS/email, appointments table)
+- Daily summary engine (endpoint for leads in last 24h, can be scheduled for email/SMS digest)
+- Billing portal (Stripe Customer Portal integration)
 
-**Fastest path to revenue. Not vaporware. Real money flowing.**
+Deploy tonight. Clone, fill keys, deploy site to Vercel, server to Railway, connect Zapier, post the link.
 
-## Quick Deploy (Under 60 Minutes)
+**Master Account:** Use /admin with your ADMIN_PASSWORD, or register as agent for full dashboard.
 
-### 1. Landing Page (Vercel/Netlify - 30 seconds)
+**Desktop Shortcut:** See easy-launch.ps1 and the Soluna.lnk style shortcut for one double-click launch (bypass + master envs + browser).
 
-1. Create `site/index.html` with the provided sales page (see below or in /site).
-2. Deploy the `site/` folder to Vercel or Netlify.
-3. Replace `YOUR_STRIPE_PAYMENT_LINK` with your real Stripe Payment Link ($99/mo subscription).
+**Next?** It's all in. If you want more (AI qualification, mobile PWA, etc.) say the word.
 
-### 2. Backend (Railway/Render/Fly.io)
-
-1. Clone this repo.
-2. `cd server`
-3. `npm install`
-4. Set env vars (see .env.example).
-5. Deploy the `server/` folder.
-6. Update the landing page form/webhook to point to your deployed backend `/lead` endpoint.
-
-### 3. Stripe
-- Create $99/mo subscription Payment Link.
-- Paste into landing page.
-
-### 4. Twilio + SendGrid
-- Get Twilio number and keys.
-- Get SendGrid key.
-- Fill in server/.env
-
-### 5. Onboarding
-- Create simple form (Tally/Typeform) collecting name, phone, email, calendar link, lead source.
-- Use Zapier/Make to POST to your backend `/lead` on new lead.
-
-### 6. Go Live
-- Post the landing page link in real estate Facebook groups, Instagram, directories, meetups, cold emails.
-- Pitch: "I'll set up instant lead response for you tonight. Every lead gets a text + email in seconds. You'll never lose another deal."
-- Offer: $99/mo, cancel anytime. Guarantee: more conversations in 7 days or refund.
-
-## Tech Stack
-- Frontend: Static HTML (Vercel/Netlify)
-- Backend: Node.js + Express
-- DB: SQLite (easy, file-based; swap to Postgres for scale)
-- SMS: Twilio
-- Email: SendGrid
-- Payments: Stripe Payment Links
-- Automation: Zapier/Make.com
-
-## Master Account / Admin
-- Admin view at /admin/leads (protected in prod with basic auth or add login).
-- For local: run the server and visit http://localhost:3000/admin/leads
-
-## Next Layers (Say "add the next layer")
-- Appointment booking (Calendly embed or API)
-- Daily summary engine (email/SMS digest)
-- CRM dashboard UI (React or simple HTML)
-- Multi-agent support
-- Billing portal (Stripe Customer Portal)
-- Full SaaS auth (user accounts, teams)
-- Lead scoring / AI qualification
-- Mobile app for agents
-
-This is not a prototype. This is not a skeleton. This is a launch-ready business.
-
-**Deploy this in under 60 minutes. Start collecting payments tonight.**
-
----
-
-*Copy this energy. No theory. Fully operational. Revenue-ready.*
+Copy this energy. No vapor. Real product. Real revenue.
