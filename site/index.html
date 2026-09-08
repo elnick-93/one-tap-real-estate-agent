@@ -2,32 +2,56 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>ONE TAP Real Estate Agent – Instant Lead Response</title>
+  <title>ONE TAP Real Estate Agent – Never Lose Another Lead</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Instant SMS + email response for real estate leads. Automatic qualification, CRM, and appointment booking. $99/mo. Stop losing deals to slow replies.">
   <style>
-    body { margin:0; font-family:system-ui; background:#0f0f14; color:#f5f5f5; }
-    .wrap { max-width:720px; margin:0 auto; padding:48px 16px; text-align:center; }
-    h1 { font-size:2.6rem; margin-bottom:12px; }
-    p { color:#b3b3b3; margin:10px 0; }
-    .btn { display:inline-block; margin-top:24px; padding:16px 32px; background:#22c55e; color:#041f0f; font-weight:700; border-radius:999px; text-decoration:none; font-size:1.1rem; }
-    .note { margin-top:16px; font-size:0.9rem; color:#7a7a7a; }
-    .signup { margin-top:32px; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif; background:#0a0a0f; color:#f5f5f5; line-height:1.5; }
+    .wrap { max-width:780px; margin:0 auto; padding:48px 20px; }
+    h1 { font-size: clamp(2rem, 5vw, 2.8rem); margin:0 0 12px; letter-spacing:-0.02em; }
+    .sub { color:#a3a3a3; font-size:1.15rem; margin-bottom:28px; }
+    .benefits { text-align:left; background:#12121a; border-radius:16px; padding:24px 28px; margin:32px 0; border:1px solid #222; }
+    .benefits li { margin:10px 0; }
+    .btn { display:inline-block; margin:8px 6px; padding:16px 32px; background:#22c55e; color:#041f0f; font-weight:700; border-radius:999px; text-decoration:none; font-size:1.05rem; transition: transform .15s, background .15s; }
+    .btn:hover { background:#16a34a; transform:translateY(-1px); }
+    .btn-secondary { background:transparent; color:#22c55e; border:2px solid #22c55e; }
+    .btn-secondary:hover { background:#22c55e22; }
+    .price { font-size:1.4rem; font-weight:700; margin:20px 0 8px; }
+    .note { margin-top:28px; font-size:0.9rem; color:#737373; }
+    .proof { margin-top:40px; padding-top:24px; border-top:1px solid #222; color:#a3a3a3; font-size:0.95rem; }
   </style>
 </head>
 <body>
   <div class="wrap">
     <h1>Never Lose Another Real Estate Lead</h1>
-    <p>Instant SMS + email response. Automatic qualification. Appointment booking. Daily summaries.</p>
-    <p>ONE TAP Real Estate Agent works 24/7 so you never miss a deal again.</p>
+    <p class="sub">Instant SMS + email the second a lead hits your inbox. Automatic qualification. Built-in CRM. Appointment booking. Daily summaries.</p>
 
-    <a class="btn" href="https://buy.stripe.com/test_YOUR_REAL_STRIPE_LINK_HERE_REPLACE_THIS">Start Now – $99/mo</a>
-
-    <div class="signup">
-      <p>Or sign up for the platform (get your API key + full dashboard)</p>
-      <a class="btn" href="signup.html">Sign Up Free (then subscribe)</a>
+    <div class="benefits">
+      <strong>What happens the moment a lead arrives:</strong>
+      <ul>
+        <li>Personalized SMS + email fires in seconds (Twilio + SendGrid)</li>
+        <li>Lead is logged in your private CRM with source & status</li>
+        <li>You (or your team) book the showing from the dashboard</li>
+        <li>Daily summary so nothing slips through</li>
+      </ul>
+      <p style="margin:16px 0 0;color:#86efac">One missed Zillow or Facebook lead can cost you $5k–$20k in commission. $99/mo is the cheapest insurance in real estate.</p>
     </div>
 
-    <p class="note">After checkout or signup, you’ll receive your API key and 2‑minute onboarding link. Replace the Stripe link with your real one from https://dashboard.stripe.com/payment-links</p>
+    <p class="price">$99 / month</p>
+    <p style="color:#a3a3a3;margin-bottom:20px">Cancel anytime. Works with Zapier, webhooks, or direct API.</p>
+
+    <!-- REPLACE the href below with your real Stripe Payment Link from https://dashboard.stripe.com/payment-links -->
+    <a class="btn" href="https://buy.stripe.com/test_YOUR_REAL_STRIPE_LINK_HERE_REPLACE_THIS">Start Now – $99/mo</a>
+    <a class="btn btn-secondary" href="signup.html">Create Account & Get API Key</a>
+
+    <p class="note">After checkout or signup you receive your unique API key + 2-minute Zapier setup. Connect Zillow, Facebook Lead Ads, your website form, or any source that can POST.</p>
+
+    <div class="proof">
+      Built for agents who answer in minutes, not hours.<br>
+      Full source + dashboard included. Deploy in under an hour.<br>
+      See <a href="https://github.com/elnick-93/one-tap-real-estate-agent" style="color:#22c55e">GitHub</a> + SELL.md for complete package.
+    </div>
   </div>
 </body>
 </html>
