@@ -1,61 +1,26 @@
 # ONE TAP Real Estate Agent
 
-**Instant lead response system for real estate agents.**  
-SMS + email automation · CRM · appointment booking · $99/mo SaaS.
+Instant SMS + email when a real estate lead arrives. CRM + booking + $99/mo seat model.
 
-**Status: Sell-ready & launch-ready.** See **[SELL.md](./SELL.md)** for pricing, valuation, and 60-minute deploy path.
+Read **[DESCRIPTION.md](./DESCRIPTION.md)** for what this app is. Read **[AUDIT.md](./AUDIT.md)** for what is finished and what is not.
 
----
-
-## What it does
-
-1. Agent signs up → gets unique API key.
-2. Lead sources (Zillow, Facebook, website, Zapier) POST to `/lead` with the API key.
-3. System immediately sends personalized SMS (Twilio) + Email (SendGrid) with qualification questions.
-4. Lead appears in the agent’s private CRM dashboard.
-5. Agent books appointments, views daily summaries, manages billing via Stripe.
-
-## Quick Start (Local)
+## Local
 
 ```bash
-git clone https://github.com/elnick-93/one-tap-real-estate-agent.git
-cd one-tap-real-estate-agent/server
+cd server
 npm install
-cp ../.env.example .env   # fill real keys
+cp ../.env.example .env   # fill keys
 node server.js
 ```
 
-Dashboard: http://localhost:3000/admin.html (after login/register)
+Open `site/index.html` locally or deploy `site/` to Vercel. Set `ONE_TAP_API_OVERRIDE` in `site/config.js` to your API URL when the landing is not on localhost.
 
-## Production Deploy (under 60 min)
+## Status
 
-See the full checklist in **SELL.md**.
+- Lead in → SMS/email out → CRM row: **implemented** (needs Twilio + SendGrid keys)
+- Auth + API keys: **implemented**
+- Stripe Payment Link CTA: **you paste the live link**
+- Stripe customer portal: **not done**
+- Paying agents: **none yet**
 
-Critical steps:
-1. Deploy `site/` (static) to Vercel/Netlify → replace Stripe Payment Link in `index.html`.
-2. Deploy `server/` to Railway/Render → set all env vars from `.env.example`.
-3. Test lead → SMS/Email → CRM.
-4. Start selling.
-
-## Keys you need
-
-- Twilio: https://www.twilio.com/try-twilio
-- SendGrid: https://sendgrid.com/
-- Stripe Payment Link + secret: https://dashboard.stripe.com/
-
-## Monetization
-
-- $99/mo per agent (Stripe).
-- High retention vertical — agents who stop missing deals stay.
-- Easy upsells later (extra seats, SMS packs, white-label).
-
-## Repo Contents
-
-- `server/` — Express backend + CRM UI + SQLite
-- `site/` — High-converting landing + signup/login
-- `SELL.md` — Complete sales package, pricing, valuation, launch checklist
-- `.env.example` — All required secrets
-
----
-
-Built for real revenue. Plug keys → deploy → collect payments.
+Sales notes: [SELL.md](./SELL.md) · [GET-PAID.md](./GET-PAID.md) · [LISTINGS.md](./LISTINGS.md)
