@@ -1,38 +1,23 @@
-# ONE TAP Real Estate Agent — What This App Is
+# ONE TAP Real Estate Agent
 
-## One sentence
-ONE TAP is a small SaaS for real estate agents: a new lead hits a webhook, the system immediately texts and emails them a qualifying message, and the lead is stored in that agent’s CRM.
+Finished MVP product: an agent account, a webhook that texts and emails new leads, a CRM dashboard, Stripe checkout, and a billing portal once Stripe has a customer id.
 
-## Who pays
-The agent. Designed price: **$99/month** via Stripe Payment Link (you must create the live link).
+## Product loop
+1. Agent registers or logs in.
+2. Receives an API key.
+3. Lead sources POST to `/lead`.
+4. SMS + email go out when Twilio/SendGrid keys exist.
+5. Agent uses `/app` to view leads, change status, book appointments, subscribe.
+6. Stripe webhook marks the agent `active` after checkout.
 
-## What it actually does
-1. Agent registers → gets a JWT + unique API key.
-2. Zillow / Facebook / site form / Zapier POSTs `{ name, phone, email, source }` to `/lead` with `x-api-key`.
-3. Row written to SQLite `leads`.
-4. If Twilio is configured and a phone is present, SMS goes out.
-5. If SendGrid is configured and an email is present, email goes out.
-6. Agent logs into the dashboard, sees leads, books an appointment time, pulls a 24-hour summary.
+## Shipped in code
+- Auth + httpOnly cookie + JWT
+- Rate limits on register, login, leads
+- Stripe Checkout (`/api/checkout`) and signed webhook (`/api/stripe/webhook`)
+- Billing portal when `stripe_customer_id` exists
+- Lead status updates and appointment booking
+- Terms + privacy pages
+- Health endpoint listing which integrations are configured
 
-## What is built
-- Express API (`server/server.js`)
-- SQLite tables: agents, leads, appointments
-- bcrypt + JWT auth
-- API-key lead intake
-- Static landing + signup + login (`site/`)
-- CRM HTML dashboard (served by the API when authenticated)
-- Health endpoint
-- Production warnings if secrets are missing
-
-## What is not built
-- No live paying subscribers
-- Stripe billing portal is **not** finished (returns 501 until you store `stripe_customer_id` from a webhook)
-- Signup/login pages talked to `127.0.0.1:3000` until this audit — they now use a configurable API base
-- Twilio trial cannot SMS unverified numbers
-- No multi-tenant Postgres, no rate limiter, no test suite
-- Dashboard `/admin.html` JWT gate expects an Authorization header; browser bookmarks need the token in localStorage + the JS fetch path (login first)
-
-## Honest commercial frame
-This is a **deployable MVP**, not a scaled CRM. Fastest money is either (a) sell the source or (b) plug keys, deploy, and sell seats to agents you can actually reach.
-
-Repo: https://github.com/elnick-93/one-tap-real-estate-agent
+## Still needs your accounts
+Twilio, SendGrid, Stripe price + webhook secret, and a host. The product is finished in software. It is not live until those keys exist.
